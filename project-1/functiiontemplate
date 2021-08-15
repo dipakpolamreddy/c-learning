@@ -1,0 +1,19 @@
+#include <iostream>
+
+template <typename t>                                         //creatinf own function template
+void reference(t & a, t & b) {
+    t temp = a;
+    a = b;
+    b = temp;
+
+
+}
+int main()
+{
+    int a = 10;
+    int b = 20;
+
+    reference(a, b);
+    std::cout << "a :" << a << '\t'; std::cout << "b : " << b << '\t';
+
+}
