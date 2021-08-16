@@ -1,0 +1,18 @@
+
+#include <iostream>
+
+int main()
+{
+    int a=8;
+    int* p;     
+
+    p = &a;  //&address of a 
+    std::cout <<"a :"<< p <<'\n';
+    std::cout << "a :" << *p << '\n';
+
+     
+
+}
+
+
+
