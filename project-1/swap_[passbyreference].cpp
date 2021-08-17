@@ -1,6 +1,6 @@
 #include <iostream>
 
-void reference(int &a, int &b) {
+void reference(int &a, int &b) {                              //swap function declarion
     int temp = a;
     a = b;
     b = temp;
