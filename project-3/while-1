@@ -1,0 +1,18 @@
+//write a program  out all the number from 100-500 
+//the output should divisible by 3 and 5
+#include <iostream>
+
+int main()
+{
+    int i=100;
+    
+    while ( i<500) {
+        if(i%3==0 && i%5==0){
+        std::cout << i<< " is divisible"<<std::endl;
+        
+        }
+        i++;
+      
+    }
+    
+}
