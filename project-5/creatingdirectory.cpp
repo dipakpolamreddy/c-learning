@@ -9,7 +9,7 @@ int main()
 		NULL
 	);
 	if (CDir == false) {
-		std::cout << " create directory Failed" << GetLastError() << std::endl;
+		std::cout << " create directory Failed & error no : " << GetLastError() << std::endl;
 		
 	}
 	else {
