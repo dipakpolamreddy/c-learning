@@ -29,9 +29,9 @@ int main()
     //Initializion winsock                                          step 1
     iWSAStartup = WSAStartup(MAKEWORD(2, 2), &WinSocData);
     if (iWSAStartup != 0) {
-        std::cout << "Recieved Failed & error no : " << std::endl;
+        std::cout << "WSAStartup Failed & error no : " << WSAGetLastError() << std::endl;
     }
-    std::cout << "Recieved Success : " << std::endl;
+    std::cout << "WSAStartup Success : " << std::endl;
 
     // Fill the UDPCLIENT  (Stocket ADDRESS) Structure              step 2
     UDPClient.sin_family = AF_INET;
@@ -41,7 +41,7 @@ int main()
     //Socket Creation                                                step 3
     UDPSocketServer = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     if (UDPSocketServer == INVALID_SOCKET) {
-        std::cout << "Socket creation Failed & error no : " << std::endl;
+        std::cout << "Socket creation Failed & error no : " << WSAGetLastError() << std::endl;
     }
     std::cout << "Socket creation Success : " << std::endl;
 
@@ -51,7 +51,7 @@ int main()
         (SOCKADDR*)&UDPClient,
         sizeof(UDPClient));
     if (iBind == SOCKET_ERROR) {
-        std::cout << "Bind connection Failed & error no : " << std::endl;
+        std::cout << "Bind connection Failed & error no : " << WSAGetLastError()  <<std::endl;
     }
     std::cout << "Bind connection Success : " << std::endl;
 
@@ -69,7 +69,7 @@ int main()
 
     );
     if (iReceiveFrom == SOCKET_ERROR) {
-        std::cout << "Recieve  Failed & error no : " << std::endl;
+        std::cout << "Recieve  Failed & error no : " << WSAGetLastError() << std::endl;
     }
     std::cout << "Recived Success : " << std::endl;
     std::cout << "Recived From Client : " <<Buffer << std::endl;
@@ -77,14 +77,14 @@ int main()
 
     iClosesocket=closesocket(UDPSocketServer);
     if (iClosesocket == SOCKET_ERROR) {
-        std::cout << "Close socket  Failed & error no : " << std::endl;
+        std::cout << "Close socket  Failed & error no : " << WSAGetLastError() << std::endl;
     }
     std::cout << "Close socket  Success : " << std::endl;
 
     //cleaning socket -                                                   step 7
     iWSaCleanup = WSACleanup();
     if (iWSaCleanup == SOCKET_ERROR) {
-        std::cout << "Close socket  Failed & error no : " << std::endl;
+        std::cout << "Close socket  Failed & error no : " << WSAGetLastError() << std::endl;
     }
     std::cout << "Close socket  Success : " << std::endl;
 
